@@ -29,8 +29,8 @@ did_succeed "Updating Packages"
 #wget -O $code_deb https://go.microsoft.com/fwlink/?LinkID=760868 >> out 2>deb_status
 # Technically not a real check here, TODO(morleyd): Fix to proper check
 #did_succeed "Fetching Code File "
-sudo apt-get install ./$code_deb -y >> out 2>error
-did_succeed "Installing Code"
+#sudo apt-get install ./$code_deb -y >> out 2>error
+#did_succeed "Installing Code"
 sudo apt-get install nodejs >> out 2>error
 did_succeed "Installing NodeJs"
 # Hide warning about Buffer() being deprecated
