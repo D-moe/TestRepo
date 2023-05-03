@@ -21,9 +21,9 @@ function did_succeed() {
     fi
 }
 echo "" > out
-echo "Starting Updating Packages, this may take a while"
-sudo apt-get update > out && sudo apt-get upgrade -y >> out 2>error
-did_succeed "Updating Packages"
+#echo "Starting Updating Packages, this may take a while"
+#sudo apt-get update > out && sudo apt-get upgrade -y >> out 2>error
+#did_succeed "Updating Packages"
 # Comment out as install didn't work
 #code_deb="code_1.77.3-1681292746_amd64.deb"
 #wget -O $code_deb https://go.microsoft.com/fwlink/?LinkID=760868 >> out 2>deb_status
@@ -31,7 +31,7 @@ did_succeed "Updating Packages"
 #did_succeed "Fetching Code File "
 #sudo apt-get install ./$code_deb -y >> out 2>error
 #did_succeed "Installing Code"
-sudo apt-get install nodejs >> out 2>error
+sudo apt-get install nodejs -y >> out 2>error
 did_succeed "Installing NodeJs"
 # Hide warning about Buffer() being deprecated
 export NODE_OPTIONS="--no-deprecation"
