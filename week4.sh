@@ -17,8 +17,9 @@ function did_succeed() {
         echo -e "${GREEN}${check}Successfully ran $1${NC}"
     fi
 }
-rm -f out
-pip install -v rshell>>out 2>error
+sudo apt-get install -y python3-pip>>out 2>error
+did_succeed "Installing pip"
+pip install -v rshell>>out 2>/dev/null
 did_succeed "Installing rshell"
 # Now add rshell to path
 usr=$(whoami)
