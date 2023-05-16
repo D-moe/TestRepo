@@ -17,18 +17,19 @@ function did_succeed() {
         echo -e "${GREEN}${check}Successfully ran $1${NC}"
     fi
 }
-
+rm -f out
 pip install -v rshell>>out 2>error
 did_succeed "Installing rshell"
 # Now add rshell to path
 usr=$(whoami)
-path="export PATH=/home/${usr}/.local/bin"
+path="export PATH=/home/${usr}/.local/bin:"'${PATH}'
 bashrc="/home/${usr}/.bashrc"
-echo path>>${bashrc}
+echo $path>>${bashrc}
 source ${bashrc}
 did_succeed "Added rshell to path"
-git clone https://github.com/D-moe/RobotCar.git>>out 2>error
+git clone https://github.com/D-moe/RobotCar.git>>out 2>&1
 did_succeed "Downloading code from github"
-
+echo "You will need to close and reopen your terminal for changes to take effect"
+rm error
 
 
